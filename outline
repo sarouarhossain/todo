@@ -22,8 +22,8 @@ RestFull API ->POST, GET, DELETE, PUT, Patch
 
 
 Resource: todo
-create ->  /todo -> method: POST
-get all -> /todo -> method: GET
+create ->  /api/v1/todo -> method: POST
+get all -> /api/v1/todo -> method: GET
 get by id -> /todo/3 -> method: GET
 Update -> /todo/2 -> method: PUT
 search -> /todo/search?name=washing -> Method: GET
