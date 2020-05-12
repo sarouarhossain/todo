@@ -1,24 +1,19 @@
 package com.example.todo.controller;
 
-import com.example.todo.model.Todo;
+import com.example.todo.model.TodoDTO;
 import com.example.todo.model.TodoForm;
-import com.example.todo.repositories.TodoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import com.example.todo.service.TodoService;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.crypto.Data;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/todo")
 public class TodoController {
-  private final TodoRepository todoRepository;
+  private final TodoService todoService;
 
-  TodoController(TodoRepository todoRepository) {
-    this.todoRepository = todoRepository;
+  TodoController(TodoService todoService) {
+    this.todoService = todoService;
   }
 
   @GetMapping("/test/{name}")
@@ -29,19 +24,13 @@ public class TodoController {
 
   @PostMapping("")
   public String createTodo(@RequestBody TodoForm todoForm) throws Exception {
-    Todo todo = new Todo();
-    todo.setName(todoForm.getName());
-    todo.setStatus(todoForm.isStatus());
-
-    SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-    Date deadLine = format.parse(todoForm.getDeadline());
-
-    todo.setDeadline(deadLine);
-    todo.setCreatedAt(new Date());
-    todo.setUpdatedAt(new Date());
-
-    todoRepository.save(todo);
-
+    this.todoService.createTodo(todoForm);
     return "OK";
+  }
+
+  @GetMapping("")
+  public List<TodoDTO> getTodoList() {
+    List<TodoDTO> res = this.todoService.getTodoList();
+    return res;
   }
 }

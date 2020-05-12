@@ -6,6 +6,7 @@
 
 
 2. list of all todo
+
 3. get todo by id 1
 4. update todo
 	{
@@ -32,3 +33,15 @@ Delete -> /todo/1 -> method: DELETE
 
 1 - washing clothes - 10/10/2020 - 0 - 09/10/2020 - 09/10/2020
 2 - washing clothes - 10/10/2020 - 0 - 09/10/2020 - 09/10/2020
+]
+
+
+
+List
+ -> ArrayList
+ -> LinkedList
+ ->
+
+List<TodoDTO> rs = new ArrayList<>() -> object -> list{todoTodo1,todoDto2}
+rs.add(todoDto1)
+rs.add(todpDto2)
