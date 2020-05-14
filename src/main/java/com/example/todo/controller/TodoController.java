@@ -5,6 +5,7 @@ import com.example.todo.model.TodoForm;
 import com.example.todo.service.TodoService;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.List;
 
 @RestController
@@ -30,7 +31,22 @@ public class TodoController {
 
   @GetMapping("")
   public List<TodoDTO> getTodoList() {
-    List<TodoDTO> res = this.todoService.getTodoList();
-    return res;
+    return this.todoService.getTodoList();
+  }
+
+  @GetMapping("/{id}")
+  public TodoDTO getTodoById(@PathVariable Long id) {
+    return this.todoService.getTodoById(id);
+  }
+
+  @PutMapping("/{id}")
+  public TodoDTO updateTodo(@PathVariable Long id, @RequestBody TodoForm updateForm)
+      throws ParseException {
+    return this.todoService.updateTodo(id, updateForm);
+  }
+
+  @GetMapping("/search")
+  public List<TodoDTO> searchTodo(@RequestParam("name") String name) {
+    return this.todoService.searchTodo(name);
   }
 }
