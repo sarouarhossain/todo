@@ -1,0 +1,47 @@
+1. register/insert -> todo
+{
+	todo name:
+	deadline:
+}
+
+
+2. list of all todo
+
+3. get todo by id 1
+4. update todo
+	{
+		name:
+		deadline:
+		status:
+	}
+5. search -> washing
+6. delete ->
+
+CRUD -> Create, Read, Update, Delete
+API -> application interface
+RestFull API ->POST, GET, DELETE, PUT, Patch
+
+
+Resource: todo
+create ->  /api/v1/todo -> method: POST
+get all -> /api/v1/todo -> method: GET
+get by id -> /todo/3 -> method: GET
+Update -> /todo/2 -> method: PUT
+search -> /todo/search?name=washing -> Method: GET
+Delete -> /todo/1 -> method: DELETE
+
+
+1 - washing clothes - 10/10/2020 - 0 - 09/10/2020 - 09/10/2020
+2 - washing clothes - 10/10/2020 - 0 - 09/10/2020 - 09/10/2020
+]
+
+
+
+List
+ -> ArrayList
+ -> LinkedList
+ ->
+
+List<TodoDTO> rs = new ArrayList<>() -> object -> list{todoTodo1,todoDto2}
+rs.add(todoDto1)
+rs.add(todpDto2)
